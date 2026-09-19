@@ -1,0 +1,22 @@
+# Home Assistant configuration
+# https://www.home-assistant.io/docs/configuration/
+
+default_config:
+
+homeassistant:
+  name: Home
+  unit_system: metric
+  time_zone: America/Sao_Paulo
+  currency: BRL
+
+http:
+  # Needed if you put HA behind a reverse proxy (Traefik, Nginx, Caddy...).
+  # Set trusted_proxies to your proxy's IP/subnet.
+  # use_x_forwarded_for: true
+  # trusted_proxies:
+  #   - 192.168.0.0/24
+
+# Split config into separate files as it grows
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
