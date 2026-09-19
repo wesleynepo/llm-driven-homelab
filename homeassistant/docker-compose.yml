@@ -1,0 +1,17 @@
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    restart: unless-stopped
+    # Host networking is required for device discovery (mDNS, SSDP, etc.). Linux only.
+    network_mode: host
+    privileged: false
+    environment:
+      TZ: ${TZ:-America/Sao_Paulo}
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    # Uncomment to pass through a USB Zigbee/Z-Wave stick (adjust the device path):
+    # devices:
+    #   - /dev/serial/by-id/usb-XXXX:/dev/ttyUSB0
