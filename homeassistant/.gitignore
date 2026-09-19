@@ -11,3 +11,7 @@ config/.HA_VERSION
 config/deps/
 config/tts/
 config/backups/
+
+# HACS and the custom components it installs (managed by install-hacs.sh / HACS)
+config/custom_components/
+config/www/community/
